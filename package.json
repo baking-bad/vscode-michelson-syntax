@@ -1,0 +1,25 @@
+{
+    "name": "michelson",
+    "displayName": "one time no Nicholas",
+    "description": "michelson vscode language support",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.38.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "michelson",
+            "aliases": ["Michelson", "michelson"],
+            "extensions": [".tz"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "michelson",
+            "scopeName": "source.michelson",
+            "path": "./syntaxes/michelson.tmLanguage.json"
+        }]
+    }
+}
