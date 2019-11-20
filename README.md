@@ -1,4 +1,5 @@
 # Michelson syntax
+[![Build Status](https://travis-ci.org/baking-bad/vscode-michelson-syntax.svg?branch=master)](https://travis-ci.org/baking-bad/vscode-michelson-syntax)
 
 Visual Studio Code extension providing syntax highlighting for Michelson source
 files.
