@@ -14,7 +14,8 @@
   "keywords": [
     "michelson",
     "tezos",
-    "smart contracts"
+    "smart contracts",
+    "syntax highlighting"
   ],
   "categories": [
     "Programming Languages"
@@ -40,5 +41,10 @@
         "path": "./syntaxes/michelson.tmLanguage.json"
       }
     ]
+  },
+  "__metadata": {
+    "id": "5b9daa6d-6292-42aa-81c0-76212c7bb01a",
+    "publisherDisplayName": "Baking Bad",
+    "publisherId": "274b8654-f936-4ada-869c-3e67e3f2e18c"
   }
 }

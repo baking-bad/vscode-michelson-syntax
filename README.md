@@ -3,7 +3,7 @@
 Visual Studio Code extension providing syntax highlighting for Michelson source
 files.
 
-![Syntax Highlighting Demo](https://i.imgur.com/ly34OPM.png)
+![Syntax Highlighting Demo](https://i.imgur.com/kkh68Hl.png)
 
 ## Based on
 
