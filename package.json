@@ -2,7 +2,7 @@
   "name": "michelson",
   "displayName": "Michelson Syntax",
   "description": "Michelson Syntax by Baking Bad",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "baking-bad",
   "icon": "icon.png",
   "engines": {
