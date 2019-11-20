@@ -13,7 +13,7 @@ script:
 deploy:
   # deploy to vscode extension market
   - provider: script  
-    script: vsce publish patch -p $VSCE_TOKEN --packagePath *.vsix # $VSCE_TOKEN set in travis-ci.org dashboard
+    script: vsce publish -p $VSCE_TOKEN --packagePath *.vsix # $VSCE_TOKEN set in travis-ci.org dashboard
     skip_cleanup: true
     on:
       branch: master
