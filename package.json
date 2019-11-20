@@ -1,25 +1,44 @@
 {
-    "name": "michelson",
-    "displayName": "one time no Nicholas",
-    "description": "michelson vscode language support",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.38.0"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "michelson",
+  "displayName": "Michelson Syntax",
+  "description": "Michelson Syntax by Baking Bad",
+  "version": "0.0.1",
+  "publisher": "baking-bad",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.38.0"
+  },
+  "repository": {
+    "url": "https://www.github.com/baking-bad/vscode-michelson-syntax"
+  },
+  "keywords": [
+    "michelson",
+    "tezos",
+    "smart contracts"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "michelson",
+        "aliases": [
+          "Michelson",
+          "michelson"
+        ],
+        "extensions": [
+          ".tz"
+        ],
+        "configuration": "./language-configuration.json"
+      }
     ],
-    "contributes": {
-        "languages": [{
-            "id": "michelson",
-            "aliases": ["Michelson", "michelson"],
-            "extensions": [".tz"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "michelson",
-            "scopeName": "source.michelson",
-            "path": "./syntaxes/michelson.tmLanguage.json"
-        }]
-    }
+    "grammars": [
+      {
+        "language": "michelson",
+        "scopeName": "source.michelson",
+        "path": "./syntaxes/michelson.tmLanguage.json"
+      }
+    ]
+  }
 }
