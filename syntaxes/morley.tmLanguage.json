@@ -1,6 +1,160 @@
 {
+    "scopeName": "source.morley",
     "name": "Morley",
-    "patterns": [],
-    "repository": {},
-    "scopeName": "source.morley"
+    "patterns": [
+        {
+            "include": "#definition"
+        },
+        {
+            "include": "#operator"
+        },
+        {
+            "include": "#keyword"
+        },
+        {
+            "include": "#instruction"
+        },
+        {
+            "include": "#type"
+        },
+        {
+            "include": "#macros"
+        },
+        {
+            "include": "source.michelson#comment"
+        },
+        {
+            "include": "source.michelson#bytes"
+        },
+        {
+            "include": "source.michelson#string"
+        },
+        {
+            "include": "source.michelson#number"
+        },
+        {
+            "include": "source.michelson#block"
+        },
+        {
+            "include": "source.michelson#type"
+        },
+        {
+            "include": "source.michelson#instruction"
+        },
+        {
+            "include": "source.michelson#macros"
+        },
+        {
+            "include": "source.michelson#data"
+        },
+        {
+            "include": "source.michelson#annotations"
+        }
+    ],
+    "repository": {
+        "definition": {
+            "patterns": [
+                {
+                    "match": "\\b([^\\s]+)(?=\\s::)",
+                    "name": "variable.language.morley"
+                },
+                {
+                    "match": "(?<=type\\s)([^\\s]+)(?=\\s=)",
+                    "name": "variable.language.morley"
+                },
+                {
+                    "match": "(?<=test_assert\\s)([^\\s]+)",
+                    "name": "variable.language.morley"
+                }
+            ]
+        },
+        "keyword": {
+            "patterns": [
+                {
+                    "match": "\\b(let)\\b",
+                    "name": "keyword.control.morley"
+                },
+                {
+                    "match": "\\b(stacktype|print|test_assert)\\b",
+                    "name": "keyword.other.unit.michelson"
+                },
+                {
+                    "match": "\\b(type|forall)\\b",
+                    "name": "support.type.property-name.morley"
+                }           
+            ]
+        },
+        "operator": {
+            "patterns": [
+                {
+                    "match": "(->|::|=|'?\\[|\\]|\\.{3}|\\||,|\\(\\\\)",
+                    "name": "punctuation.definition.tag.morley"
+                }
+            ]
+        },
+        "type": {
+            "patterns": [
+                {
+                    "match": "\\b(Option|List|Set|Contract|Or|Lambda|Map|BigMap|Key|Signature|Operation|Address|Int|Nat|String|Bytes|Mutez|Bool|KeyHash|Timestamp|ChainId)\\b",
+                    "name": "support.type.michelson"
+                },
+                {
+                    "match": "\\b(Parameter|Storage|Union|View)\\b",
+                    "name": "support.type.michelson"
+                },
+                {
+                    "match": "\\b(Pair|Unit)\\b",
+                    "name": "support.type.michelson"
+                }
+            ]
+        },
+        "instruction": {
+            "patterns": [
+                {
+                    "match": "\\b(drop|dup|swap|push|some|if_none|car|cdr|if_left|if_right|nil|cons|if_cons|size|empty_set|empty_map|map|iter|mem|get|update|if|loop|loop_left|exec|dip|failwith|cast|rename|concat|slice|pack|unpack|add|sub|mul|ediv|abs|neg|lsl|lsr|and|xor|not|compare|eq|neq|lt|gt|le|ge|self|transfer_tokens|set_delegate|create_contract|implicit_account|now|amount|balance|check_signature|blake2b|sha256|sha512|hash_key|steps_to_quota|source|sender|dig|dug|empty_big_map|apply)\\b",
+                    "name": "keyword.other.unit.morley"
+                },
+                {
+                    "match": "(?<=^|;)\\s*(pair|or|contract|address|unit|none|lambda|left|right|chain_id)\\b",
+                    "name": "keyword.other.unit.morley"
+                }
+            ]
+        },
+        "macros": {
+            "patterns": [
+                {
+                    "match": "\\b(if_some|fail|assert|assert_none|assert_some|assert_left|assert_right|unpair|(set|map)_c[ad]+r)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(dii+p|c[ad]{2,}r|duu+p|p[pai]{3,}r|unp[pai]{3,}r)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\bcmp(eq|neq|lt|gt|le|ge)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\bif(eq|neq|lt|gt|le|ge)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\bifcmp(eq|neq|lt|gt|le|ge)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\bassert_(eq|neq|lt|le|gt|ge)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\bassert_cmp(eq|neq|lt|le|gt|ge)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(case|view|void|access|set|construct|tag|isnat)\\b",
+                    "name": "support.function.morley"
+                }
+            ]
+        }
+    }
 }

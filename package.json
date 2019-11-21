@@ -1,8 +1,8 @@
 {
   "name": "michelson",
   "displayName": "Michelson Syntax",
-  "description": "Michelson Syntax by Baking Bad",
-  "version": "0.0.5",
+  "description": "Syntax highlighting for the Michelson language and Morley extensions.",
+  "version": "0.0.6",
   "publisher": "baking-bad",
   "icon": "icon.png",
   "engines": {
@@ -13,6 +13,7 @@
   },
   "keywords": [
     "michelson",
+    "morley",
     "tezos",
     "smart contracts",
     "syntax highlighting"
@@ -32,6 +33,17 @@
           ".tz"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "morley",
+        "aliases": [
+          "Morley",
+          "morley"
+        ],
+        "extensions": [
+          ".mtz"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
@@ -39,6 +51,11 @@
         "language": "michelson",
         "scopeName": "source.michelson",
         "path": "./syntaxes/michelson.tmLanguage.json"
+      },
+      {
+        "language": "morley",
+        "scopeName": "source.morley",
+        "path": "./syntaxes/morley.tmLanguage.json"
       }
     ]
   },

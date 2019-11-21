@@ -1,0 +1,62 @@
+let {
+
+  type Param =
+    ( (Address, (Address, Nat))   %transfer
+    | View () Nat                 %getTotalSupply
+    | View Address Nat            %getBalance
+    );
+
+  type Store = (BigMap Address Nat, Nat);
+
+  getSenderBalance :: '[(Address, Nat), Store]
+                   -> '[Nat, (Address, Nat), Store]
+  = {duup; car; sender; get; assert_some; };
+
+  newSenderBalance :: '[Nat, (Address, Nat), Store]
+                   -> '[Option Nat, (Address, Nat), Store]
+  = { duup; cdr; swap; sub; dup; assert_ge;
+      dup; eq; if {drop; none Nat} {isnat};
+    };
+
+  debitSender :: '[Option Nat, (Address, Nat), Store] -> '[(Address, Nat), Store]
+  = { dip {swap; unpair}; sender; update; pair; swap};
+
+  getRecipientBalance :: '[(Address, Nat), Store]
+                      -> '[Option Nat, (Address, Nat), Store]
+  = { duup; car; duup; car; get};
+
+  newRecipientBalance :: '[Option Nat, (Address, Nat), Store]
+                      -> '[Nat, (Address, Nat), Store]
+  = { if_some
+      {duup; cdr; add}
+      {dup; cdr};
+    };
+
+  creditRecipient :: '[Nat, (Address, Nat), Store]
+                  -> '[(Address, Nat), Store]
+  = { some; duup; car; diip {swap; unpair}; update; pair; swap;};
+
+  transferBalance :: '[(Address, (Address, Nat)), Store]
+                  -> '[(List Operation, Store)]
+  = { dup; car; sender; assert_cmpeq; cdr;
+      getSenderBalance; newSenderBalance; debitSender;
+      getRecipientBalance; newRecipientBalance; creditRecipient;
+      drop; nil operation; pair;
+    };
+
+  getTotalSupply :: '[ View () Nat, Store ] -> '[(List Operation, Store)]
+  = { view {cddr} };
+
+  getBalance :: '[ View Address Nat, Store ]
+             -> '[(List Operation, Store)]
+  = { view { unpair; dip {car}; get; if_some {} {push nat 0} } };
+
+};
+parameter Param;
+storage Store;
+code {unpair;
+      case
+        { transferBalance}
+        { getTotalSupply }
+        { getBalance };
+     };
