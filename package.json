@@ -1,8 +1,8 @@
 {
   "name": "michelson",
   "displayName": "Michelson Syntax",
-  "description": "Syntax highlighting for the Michelson language and Morley extensions.",
-  "version": "0.0.6",
+  "description": "Syntax highlighting for the Michelson language and Morley extensions",
+  "version": "0.0.7",
   "publisher": "baking-bad",
   "icon": "icon.png",
   "engines": {

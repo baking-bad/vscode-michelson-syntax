@@ -6,4 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+## [0.0.7] - 2019-11-21
+### Added
+- Complete Michelson syntax support including macros
+- Morley extensions support
