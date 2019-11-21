@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.michelson",
   "name": "Michelson",
   "patterns": [
     {
@@ -27,12 +27,6 @@
       "include": "#type"
     },
     {
-      "include": "#ctype"
-    },
-    {
-      "include": "#literal"
-    },
-    {
       "include": "#macros"
     },
     {
@@ -54,16 +48,16 @@
     "number": {
       "patterns": [
         {
-          "name": "string.quoted.michelson",
-          "match": "-?[0-9]+"
+          "name": "string.michelson",
+          "match": "\\b-?[0-9]+\\b"
         }
       ]
     },
     "bytes": {
       "patterns": [
         {
-          "name": "string.quoted.michelson",
-          "match": "0x[0-9A-z]+"
+          "name": "string.michelson",
+          "match": "\\b0x[0-9A-Ea-e]*\\b"
         }
       ]
     },
@@ -82,47 +76,35 @@
       "patterns": [
         {
           "match": "\\b(parameter|storage|code?)\\b",
-          "name": "storage.modifier.michelson"
+          "name": "keyword.control.michelson"
         }
       ]
     },
     "data": {
       "patterns": [
         {
-          "match": "\\b(Unit|True|False|Pair|Left|Right|Some|None|Elt?)\\b",
-          "name": "support.constant.michelson"
+          "match": "\\b(Unit|True|False|Pair|Left|Right|Some|None|Elt)\\b",
+          "name": "variable.other.enummember.michelson"
         }
       ]
     },
     "instruction": {
       "patterns": [
         {
-          "match": "\\b(DROP|DUP|SWAP|PUSH|SOME|NONE|UNIT|IF_NONE|PAIR|CAR|CDR|LEFT|RIGHT|IF_LEFT|IF_RIGHT|NIL|CONS|IF_CONS|SIZE|EMPTY_SET|EMPTY_MAP|MAP|ITER|MEM|GET|UPDATE|IF|LOOP|LOOP_LEFT|LAMBDA|EXEC|DIP|FAILWITH|CAST|RENAME|CONCAT|SLICE|PACK|UNPACK|ADD|SUB|MUL|EDIV|ABS|NEG|LSL|LSR|OR|AND|XOR|NOT|COMPARE|EQ|NEQ|LT|GT|LE|GE|SELF|CONTRACT|TRANSFER_TOKENS|SET_DELEGATE|CREATE_CONTRACT|IMPLICIT_ACCOUNT|NOW|AMOUNT|BALANCE|CHECK_SIGNATURE|BLAKE2B|SHA256|SHA512|HASH_KEY|STEPS_TO_QUOTA|SOURCE|SENDER|ADDRESS|DIG|DUG|EMPTY_BIG_MAP|APPLY|chain_id|CHAIN_ID)\\b",
-          "name": "keyword.control.michelson"
+          "match": "\\b(DROP|DUP|SWAP|PUSH|SOME|NONE|UNIT|IF_NONE|PAIR|CAR|CDR|LEFT|RIGHT|IF_LEFT|IF_RIGHT|NIL|CONS|IF_CONS|SIZE|EMPTY_SET|EMPTY_MAP|MAP|ITER|MEM|GET|UPDATE|IF|LOOP|LOOP_LEFT|LAMBDA|EXEC|DIP|FAILWITH|CAST|RENAME|CONCAT|SLICE|PACK|UNPACK|ADD|SUB|MUL|EDIV|ABS|NEG|LSL|LSR|OR|AND|XOR|NOT|COMPARE|EQ|NEQ|LT|GT|LE|GE|SELF|CONTRACT|TRANSFER_TOKENS|SET_DELEGATE|CREATE_CONTRACT|IMPLICIT_ACCOUNT|NOW|AMOUNT|BALANCE|CHECK_SIGNATURE|BLAKE2B|SHA256|SHA512|HASH_KEY|STEPS_TO_QUOTA|SOURCE|SENDER|ADDRESS|DIG|DUG|EMPTY_BIG_MAP|APPLY|CHAIN_ID)\\b",
+          "name": "keyword.other.unit.michelson"
         }
       ]
     },
     "type": {
       "patterns": [
         {
-          "match": "\\b(option|list|set|contract|pair|or|lambda|map|big_map?)\\b",
-          "name": "support.function.michelson"
-        }
-      ]
-    },
-    "ctype": {
-      "patterns": [
-        {
-          "match": "\\b(key|unit|signature|operation|address|int|nat|string|bytes|mutez|bool|key_hash|timestamp?)\\b",
+          "match": "\\b(option|list|set|contract|pair|or|lambda|map|big_map)\\b",
           "name": "support.type.michelson"
-        }
-      ]
-    },
-    "literal": {
-      "patterns": [
+        },
         {
-          "match": "\\b(TODO?)\\b",
-          "name": "keyword.literal.constant.michelson"
+          "match": "\\b(key|unit|signature|operation|address|int|nat|string|bytes|mutez|bool|key_hash|timestamp|chain_id)\\b",
+          "name": "support.type.michelson"
         }
       ]
     },
@@ -130,50 +112,49 @@
       "patterns": [
         {
           "match": "\\b(IF_SOME|FAIL|ASSERT|ASSERT_NONE|ASSERT_SOME|ASSERT_LEFT|ASSERT_RIGHT|UNPAIR|(SET|MAP)_C[AD]+R)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         },
         {
           "match": "\\b(DII+P|C[AD]{2,}R|DUU+P|P[PAI]{3,}R|UNP[PAI]{3,}R)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         },
         {
           "match": "\\bCMP(EQ|NEQ|LT|GT|LE|GE)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         },
         {
           "match": "\\bIF(EQ|NEQ|LT|GT|LE|GE)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         },
         {
           "match": "\\bIFCMP(EQ|NEQ|LT|GT|LE|GE)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         },
         {
           "match": "\\bASSERT_(EQ|NEQ|LT|LE|GT|GE)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         },
         {
           "match": "\\bASSERT_CMP(EQ|NEQ|LT|LE|GT|GE)\\b",
-          "name": "meta.object-literal.key.michelson"
+          "name": "support.function.michelson"
         }
       ]
     },
     "annotations": {
       "patterns": [
         {
-          "match": "%[A-z_0-9%@]*",
-          "name": "constant.character.escape.michelson"
+          "match": "(?<=\\s)%[A-z_0-9%@]*",
+          "name": "support.type.property-name.michelson"
         },
         {
-          "match": "@[A-z_0-9%]+",
-          "name": "constant.character.escape.michelson"
+          "match": "(?<=\\s)@[A-z_0-9%]+\\b",
+          "name": "support.type.property-name.michelson"
         },
         {
-          "match": ":[A-z_0-9]+",
-          "name": "constant.character.escape.michelson"
+          "match": "(?<=\\s):[A-z_0-9]+\\b",
+          "name": "support.type.property-name.michelson"
         }
       ]
     }
-  },
-  "scopeName": "source.michelson"
+  }
 }
