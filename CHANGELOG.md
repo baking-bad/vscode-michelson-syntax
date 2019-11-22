@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 - Multiline comments
 - Popular color schemes support
+
+## [0.0.9] - 2019-11-22
+### Fixed
+- Custom defined types

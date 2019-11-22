@@ -15,10 +15,10 @@
             "include": "#instruction"
         },
         {
-            "include": "#type"
+            "include": "#macros"
         },
         {
-            "include": "#macros"
+            "include": "#type"
         },
         {
             "include": "source.michelson#comment"
@@ -108,6 +108,10 @@
                 {
                     "match": "\\b(Pair|Unit)\\b",
                     "name": "entity.name.type.morley support.type.morley"
+                },
+                {
+                    "match": "(?<=\\s|\\[|\\(|,)([A-Z]\\w*)\\b",
+                    "name": "entity.name.type.morley support.type.morley"
                 }
             ]
         },
@@ -118,7 +122,7 @@
                     "name": "support.function.morley"
                 },
                 {
-                    "match": "(?<=^|;)\\s*(pair|or|contract|address|unit|none|lambda|left|right|chain_id)\\b",
+                    "match": "(?<=^|;|\\{)\\s*(pair|or|contract|address|unit|none|lambda|left|right|chain_id)\\b",
                     "name": "support.function.morley"
                 }
             ]
