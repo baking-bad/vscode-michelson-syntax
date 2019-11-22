@@ -24,6 +24,9 @@
             "include": "source.michelson#comment"
         },
         {
+            "include": "source.michelson#multicomment"
+        },
+        {
             "include": "source.michelson#bytes"
         },
         {
@@ -56,15 +59,15 @@
             "patterns": [
                 {
                     "match": "\\b([^\\s]+)(?=\\s::)",
-                    "name": "variable.language.morley"
+                    "name": "entity.other.attribute-name.morley"
                 },
                 {
                     "match": "(?<=type\\s)([^\\s]+)(?=\\s=)",
-                    "name": "variable.language.morley"
+                    "name": "entity.other.attribute-name.morley"
                 },
                 {
                     "match": "(?<=test_assert\\s)([^\\s]+)",
-                    "name": "variable.language.morley"
+                    "name": "entity.other.attribute-name.morley"
                 }
             ]
         },
@@ -76,11 +79,11 @@
                 },
                 {
                     "match": "\\b(stacktype|print|test_assert)\\b",
-                    "name": "keyword.other.unit.michelson"
+                    "name": "support.function.morley"
                 },
                 {
                     "match": "\\b(type|forall)\\b",
-                    "name": "support.type.property-name.morley"
+                    "name": "keyword.other.unit.morley meta.preprocessor.morley"
                 }           
             ]
         },
@@ -88,7 +91,7 @@
             "patterns": [
                 {
                     "match": "(->|::|=|'?\\[|\\]|\\.{3}|\\||,|\\(\\\\)",
-                    "name": "punctuation.definition.tag.morley"
+                    "name": "punctuation.definition.tag.xi.morley punctuation.definition.tag.morley"
                 }
             ]
         },
@@ -96,15 +99,15 @@
             "patterns": [
                 {
                     "match": "\\b(Option|List|Set|Contract|Or|Lambda|Map|BigMap|Key|Signature|Operation|Address|Int|Nat|String|Bytes|Mutez|Bool|KeyHash|Timestamp|ChainId)\\b",
-                    "name": "support.type.michelson"
+                    "name": "entity.name.type.morley support.type.morley"
                 },
                 {
-                    "match": "\\b(Parameter|Storage|Union|View)\\b",
-                    "name": "support.type.michelson"
+                    "match": "\\b(Parameter|Storage|View)\\b",
+                    "name": "entity.name.type.morley support.type.morley"
                 },
                 {
                     "match": "\\b(Pair|Unit)\\b",
-                    "name": "support.type.michelson"
+                    "name": "entity.name.type.morley support.type.morley"
                 }
             ]
         },
@@ -112,11 +115,11 @@
             "patterns": [
                 {
                     "match": "\\b(drop|dup|swap|push|some|if_none|car|cdr|if_left|if_right|nil|cons|if_cons|size|empty_set|empty_map|map|iter|mem|get|update|if|loop|loop_left|exec|dip|failwith|cast|rename|concat|slice|pack|unpack|add|sub|mul|ediv|abs|neg|lsl|lsr|and|xor|not|compare|eq|neq|lt|gt|le|ge|self|transfer_tokens|set_delegate|create_contract|implicit_account|now|amount|balance|check_signature|blake2b|sha256|sha512|hash_key|steps_to_quota|source|sender|dig|dug|empty_big_map|apply)\\b",
-                    "name": "keyword.other.unit.morley"
+                    "name": "support.function.morley"
                 },
                 {
                     "match": "(?<=^|;)\\s*(pair|or|contract|address|unit|none|lambda|left|right|chain_id)\\b",
-                    "name": "keyword.other.unit.morley"
+                    "name": "support.function.morley"
                 }
             ]
         },
@@ -124,35 +127,35 @@
             "patterns": [
                 {
                     "match": "\\b(if_some|fail|assert|assert_none|assert_some|assert_left|assert_right|unpair|(set|map)_c[ad]+r)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\b(dii+p|c[ad]{2,}r|duu+p|p[pai]{3,}r|unp[pai]{3,}r)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\bcmp(eq|neq|lt|gt|le|ge)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\bif(eq|neq|lt|gt|le|ge)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\bifcmp(eq|neq|lt|gt|le|ge)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\bassert_(eq|neq|lt|le|gt|ge)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\bassert_cmp(eq|neq|lt|le|gt|ge)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {
                     "match": "\\b(case|view|void|access|set|construct|tag|isnat)\\b",
-                    "name": "support.function.morley"
+                    "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 }
             ]
         }

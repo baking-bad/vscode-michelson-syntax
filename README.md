@@ -5,4 +5,4 @@
 Visual Studio Code extension providing syntax highlighting for Michelson and Morley source
 files.
 
-![Syntax Highlighting Demo](https://i.imgur.com/A7wIEuy.png)
+![Syntax Highlighting Demo](https://i.imgur.com/mvnbIXY.png)
