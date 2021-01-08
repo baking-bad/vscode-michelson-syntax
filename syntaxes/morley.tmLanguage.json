@@ -118,7 +118,27 @@
         "instruction": {
             "patterns": [
                 {
-                    "match": "\\b(drop|dup|swap|push|some|if_none|car|cdr|if_left|if_right|nil|cons|if_cons|size|empty_set|empty_map|map|iter|mem|get|update|if|loop|loop_left|exec|dip|failwith|cast|rename|concat|slice|pack|unpack|add|sub|mul|ediv|abs|neg|lsl|lsr|and|xor|not|compare|eq|neq|lt|gt|le|ge|self|transfer_tokens|set_delegate|create_contract|implicit_account|now|amount|balance|check_signature|blake2b|sha256|sha512|hash_key|steps_to_quota|source|sender|dig|dug|empty_big_map|apply)\\b",
+                    "match": "\\b(apply|exec|failwith|if_cons|if_left|if_none|if|iter|loop_left|loop)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(dig|dip|drop|dug|dup|push|swap|cast|rename|steps_to_quota)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(abs|add|compare|ediv|neq|eq|ge|gt|int|isnat|le|lsl|lsr|lt|mul|neg|sub|and|not|xor)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(blake2b|check_signature|hash_key|keccak|pairing_check|sapling_empty_state|sapling_verify_update|sha256|sha3|sha512)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(amount|balance|create_contract|implicit_account|level|now|self_address|self|sender|set_delegate|source|total_voting_power|voting_power|transfer_tokens)\\b",
+                    "name": "support.function.morley"
+                },
+                {
+                    "match": "\\b(get_and_update|get|update|some|unpair|pair|car|cdr|nil|cons|size|empty_set|empty_map|map|mem|concat|slice|unpack|pack|join_tickets|read_ticket|split_ticket|ticket)\\b",
                     "name": "support.function.morley"
                 },
                 {
@@ -130,7 +150,7 @@
         "macros": {
             "patterns": [
                 {
-                    "match": "\\b(if_some|fail|assert|assert_none|assert_some|assert_left|assert_right|unpair|(set|map)_c[ad]+r)\\b",
+                    "match": "\\b(if_some|if_right|fail|assert|assert_none|assert_some|assert_left|assert_right|unpair|(set|map)_c[ad]+r)\\b",
                     "name": "variable.function.morley meta.preprocessor.numeric.morley"
                 },
                 {

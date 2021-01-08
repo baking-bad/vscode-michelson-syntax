@@ -105,7 +105,27 @@
     "instruction": {
       "patterns": [
         {
-          "match": "\\b(DROP|DUP|SWAP|PUSH|SOME|NONE|UNIT|IF_NONE|PAIR|CAR|CDR|LEFT|RIGHT|IF_LEFT|IF_RIGHT|NIL|CONS|IF_CONS|SIZE|EMPTY_SET|EMPTY_MAP|MAP|ITER|MEM|GET|UPDATE|IF|LOOP|LOOP_LEFT|LAMBDA|EXEC|DIP|FAILWITH|CAST|RENAME|CONCAT|SLICE|PACK|UNPACK|ADD|SUB|MUL|EDIV|ABS|NEG|LSL|LSR|OR|AND|XOR|NOT|COMPARE|EQ|NEQ|LT|GT|LE|GE|SELF|CONTRACT|TRANSFER_TOKENS|SET_DELEGATE|CREATE_CONTRACT|IMPLICIT_ACCOUNT|NOW|AMOUNT|BALANCE|CHECK_SIGNATURE|BLAKE2B|SHA256|SHA512|HASH_KEY|STEPS_TO_QUOTA|SOURCE|SENDER|ADDRESS|DIG|DUG|EMPTY_BIG_MAP|APPLY|CHAIN_ID)\\b",
+          "match": "\\b(APPLY|EXEC|FAILWITH|IF_CONS|IF_LEFT|IF_NONE|IF|ITER|LAMBDA|LOOP_LEFT|LOOP)\\b",
+          "name": "support.function.michelson"
+        },
+        {
+          "match": "\\b(DIG|DIP|DROP|DUG|DUP|PUSH|SWAP|CAST|RENAME|STEPS_TO_QUOTA)\\b",
+          "name": "support.function.michelson"
+        },
+        {
+          "match": "\\b(ABS|ADD|COMPARE|EDIV|NEQ|EQ|GE|GT|INT|ISNAT|LE|LSL|LSR|LT|MUL|NEG|SUB|AND|NOT|OR|XOR)\\b",
+          "name": "support.function.michelson"
+        },
+        {
+          "match": "\\b(BLAKE2B|CHECK_SIGNATURE|HASH_KEY|KECCAK|PAIRING_CHECK|SAPLING_EMPTY_STATE|SAPLING_VERIFY_UPDATE|SHA256|SHA3|SHA512)\\b",
+          "name": "support.function.michelson"
+        },
+        {
+          "match": "\\b(ADDRESS|AMOUNT|BALANCE|CHAIN_ID|CREATE_CONTRACT|CONTRACT|IMPLICIT_ACCOUNT|LEVEL|NOW|SELF_ADDRESS|SELF|SENDER|SET_DELEGATE|SOURCE|TOTAL_VOTING_POWER|VOTING_POWER|TRANSFER_TOKENS)\\b",
+          "name": "support.function.michelson"
+        },
+        {
+          "match": "\\b(GET_AND_UPDATE|GET|UPDATE|SOME|NONE|UNIT|UNPAIR|PAIR|CAR|CDR|LEFT|RIGHT|NIL|CONS|SIZE|EMPTY_SET|EMPTY_MAP|MAP|MEM|CONCAT|SLICE|UNPACK|PACK|JOIN_TICKETS|READ_TICKET|SPLIT_TICKET|TICKET)\\b",
           "name": "support.function.michelson"
         }
       ]
@@ -113,11 +133,19 @@
     "type": {
       "patterns": [
         {
-          "match": "\\b(option|list|set|contract|pair|or|lambda|map|big_map)\\b",
+          "match": "\\b(unit|int|nat|string|bytes|bool)\\b",
           "name": "entity.name.type.michelson support.type.michelson"
         },
         {
-          "match": "\\b(key|unit|signature|operation|address|int|nat|string|bytes|mutez|bool|key_hash|timestamp|chain_id)\\b",
+          "match": "\\b(option|list|set|contract|pair|or|lambda|big_map|map|ticket)\\b",
+          "name": "entity.name.type.michelson support.type.michelson"
+        },
+        {
+          "match": "\\b(key_hash|key|signature|operation|address|mutez|timestamp|chain_id|never)\\b",
+          "name": "entity.name.type.michelson support.type.michelson"
+        },
+        {
+          "match": "\\b(sapling_state|sapling_transaction|bls12_381_fr|bls12_381_g1|bls12_381_g2)\\b",
           "name": "entity.name.type.michelson support.type.michelson"
         }
       ]
@@ -125,7 +153,7 @@
     "macros": {
       "patterns": [
         {
-          "match": "\\b(IF_SOME|FAIL|ASSERT|ASSERT_NONE|ASSERT_SOME|ASSERT_LEFT|ASSERT_RIGHT|UNPAIR|(SET|MAP)_C[AD]+R)\\b",
+          "match": "\\b(IF_SOME|IF_RIGHT|FAIL|ASSERT|ASSERT_NONE|ASSERT_SOME|ASSERT_LEFT|ASSERT_RIGHT|(SET|MAP)_C[AD]+R)\\b",
           "name": "variable.function.michelson meta.preprocessor.numeric.michelson"
         },
         {

@@ -19,3 +19,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.9] - 2019-11-22
 ### Fixed
 - Custom defined types
+
+## [0.1.0] - 2021-01-08
+### Added
+- New instructions and types introduced in Edo
